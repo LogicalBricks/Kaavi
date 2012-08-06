@@ -20,10 +20,9 @@ ActiveRecord::Schema.define(:version => 20120804184940) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "palabras_significados", :id => false, :force => true do |t|
-    t.integer  "significado_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+  create_table "palabras_traducciones", :id => false, :force => true do |t|
+    t.integer "palabra_id"
+    t.integer "traduccion_id"
   end
 
   create_table "significados", :force => true do |t|
@@ -33,8 +32,9 @@ ActiveRecord::Schema.define(:version => 20120804184940) do
   end
 
   create_table "traducciones", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "significado_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
 end
