@@ -32,8 +32,7 @@ gem 'cancan'
 gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails', github: 'anjlab/bootstrap-rails'
 
 group :development, :test do
-  gem 'minitest'
-  gem 'minitest-matchers'
+  gem 'rspec-rails'
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'cucumber-rails', require: false

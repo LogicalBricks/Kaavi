@@ -1,4 +1,8 @@
 Kaavi::Application.routes.draw do
+  resources :significados
+
+  resources :palabras
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

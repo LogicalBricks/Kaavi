@@ -1,0 +1,11 @@
+
+%p
+  %b= @palabra.palabra
+  = @palabra.lugar 
+%ul
+  - @palabra.traducciones.each do |p|
+    %li= p.significado.palabra
+
+.btn-group
+  = link_to 'Editar', edit_palabra_path(@palabra), class: 'btn'
+  = link_to 'Listado', palabras_path, class: 'btn'

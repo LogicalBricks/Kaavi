@@ -1,0 +1,2 @@
+module PalabrasHelper
+end

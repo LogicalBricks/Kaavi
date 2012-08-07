@@ -1,0 +1,25 @@
+%h1 Listado de Palabras
+
+- if @palabras.any?
+  %table
+    %thead
+      %tr
+        %th Palabra
+        %th
+
+    %tbody
+      - @palabras.each do |palabra|
+        %tr
+          %td= palabra.palabra
+          %td
+            .btn-group
+              = link_to 'Mostrar', palabra, class: 'btn'
+              = link_to 'Editar', edit_palabra_path(palabra), class: 'btn'
+              = link_to 'Eliminar', palabra, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn'
+- else
+  %div
+    %h3 No se encontraron Palabras
+
+%br
+
+= link_to "Nueva Palabra", new_palabra_path, class: 'btn btn-primary'

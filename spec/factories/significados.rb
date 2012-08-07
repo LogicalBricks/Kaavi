@@ -2,5 +2,6 @@
 
 FactoryGirl.define do
   factory :significado do
+    sequence(:palabra){ |n| "significado#{n}"}
   end
 end

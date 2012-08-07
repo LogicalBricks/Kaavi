@@ -1,0 +1,11 @@
+= form_for(@palabra) do |f|
+  = render 'error_messages', target: @palabra
+
+  = f.label :palabra 
+  = f.text_field :palabra
+
+  = f.label :lugar
+  = f.text_field :lugar
+
+  .actions
+    = f.submit class:'btn btn-primary'
