@@ -6,18 +6,21 @@
       %tr
         %th
         %th
-        %th
 
     %tbody
       - @significados.each do |significado|
         %tr
-          %td= link_to 'Mostrar', significado
-          %td= link_to 'Editar', edit_significado_path(significado)
-          %td= link_to 'Eliminar', significado, method: :delete, data: { confirm: '¿Estás seguro?' }
-- else
+          %td
+            = significado.palabra
+          %td
+            .btn-group
+              = link_to 'Mostrar', significado, class: 'btn'
+              = link_to 'Editar', edit_significado_path(significado), class: 'btn'
+              = link_to 'Eliminar', significado, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn'
+  - else
   %div
     %h3 No se encontraron Significados
 
 %br
 
-= link_to "Nuevo Significado", new_significado_path
+= link_to "Nuevo Significado", new_significado_path, class:'btn'

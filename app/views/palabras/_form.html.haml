@@ -6,6 +6,10 @@
 
   = f.label :lugar
   = f.text_field :lugar
+ 
+  %br 
+  %p
+    %input#significados{type: 'hidden', name:'significados', style: 'width:300px' }
 
   .actions
     = f.submit class:'btn btn-primary'
