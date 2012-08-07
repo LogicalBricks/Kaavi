@@ -24,7 +24,7 @@ describe PalabrasController do
   # Palabra. As you add validations to Palabra, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    { palabra: 'Aprender'}
   end
 
   # This should return the minimal set of values that should be in the session

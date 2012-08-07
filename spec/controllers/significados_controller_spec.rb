@@ -24,7 +24,7 @@ describe SignificadosController do
   # Significado. As you add validations to Significado, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    { palabra: "ka\'avi" }
   end
 
   # This should return the minimal set of values that should be in the session
