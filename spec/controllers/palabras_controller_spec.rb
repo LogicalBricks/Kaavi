@@ -37,6 +37,16 @@ describe PalabrasController do
       get :index, {}, valid_session
       assigns(:palabras).should eq([palabra])
     end
+
+    it "get all word's variants" do
+      traduccion = FactoryGirl.create(:traduccion, significado: FactoryGirl.create(:significado, palabra: "H2O"))
+      trad2 = FactoryGirl.create(:traduccion, significado: FactoryGirl.create(:significado, palabra: "H"))
+      palabra = FactoryGirl.create(:palabra_con_traduccion, traducciones: [trad2])
+      wasser = FactoryGirl.create(:palabra_con_traduccion, palabra: "wasser", traducciones: [traduccion])
+      water = FactoryGirl.create(:palabra_con_traduccion, palabra: "water", traducciones: [traduccion])
+      get :index, {}, valid_session
+      pending
+    end
   end
 
   describe "GET show" do
