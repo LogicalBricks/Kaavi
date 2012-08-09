@@ -11,6 +11,8 @@ $ ->
     ajax:
       url: "/significados.json"
       dataType: 'json'
+      data: (term,page) ->
+        return {}
       results: (data, page) ->
         newdata = []
         for d in data
