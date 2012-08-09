@@ -41,6 +41,11 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'email_spec'
   gem 'sqlite3'
+  gem 'launchy'
+  gem 'autotest'
+  gem 'autotest-rails'
+  gem 'autotest-notification'
+  gem 'test_notifier'
 end
 
 gem 'tabulous'

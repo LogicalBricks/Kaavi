@@ -1,7 +1,9 @@
 Kaavi::Application.routes.draw do
   resources :significados
 
-  resources :palabras
+  resources :palabras do
+    resources :variantes, only: [:index, :new, :create]
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

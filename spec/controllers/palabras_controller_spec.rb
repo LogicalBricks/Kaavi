@@ -23,9 +23,6 @@ describe PalabrasController do
   # This should return the minimal set of attributes required to create a valid
   # Palabra. As you add validations to Palabra, be sure to
   # update the return value of this method accordingly.
-  def valid_attributes
-    { palabra: 'Aprender'}
-  end
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -36,7 +33,7 @@ describe PalabrasController do
 
   describe "GET index" do
     it "assigns all palabras as @palabras" do
-      palabra = Palabra.create! valid_attributes
+      palabra = FactoryGirl.create(:palabra)
       get :index, {}, valid_session
       assigns(:palabras).should eq([palabra])
     end
@@ -44,7 +41,7 @@ describe PalabrasController do
 
   describe "GET show" do
     it "assigns the requested palabra as @palabra" do
-      palabra = Palabra.create! valid_attributes
+      palabra = FactoryGirl.create(:palabra)
       get :show, {:id => palabra.to_param}, valid_session
       assigns(:palabra).should eq(palabra)
     end
@@ -59,7 +56,7 @@ describe PalabrasController do
 
   describe "GET edit" do
     it "assigns the requested palabra as @palabra" do
-      palabra = Palabra.create! valid_attributes
+      palabra = FactoryGirl.create(:palabra)
       get :edit, {:id => palabra.to_param}, valid_session
       assigns(:palabra).should eq(palabra)
     end
@@ -68,19 +65,22 @@ describe PalabrasController do
   describe "POST create" do
     describe "with valid params" do
       it "creates a new Palabra" do
+        palabra = FactoryGirl.build(:palabra)
         expect {
-          post :create, {:palabra => valid_attributes}, valid_session
+          post :create, {:palabra => palabra.attributes}, valid_session
         }.to change(Palabra, :count).by(1)
       end
 
       it "assigns a newly created palabra as @palabra" do
-        post :create, {:palabra => valid_attributes}, valid_session
+        palabra = FactoryGirl.build(:palabra)
+        post :create, {:palabra => palabra.attributes}, valid_session
         assigns(:palabra).should be_a(Palabra)
         assigns(:palabra).should be_persisted
       end
 
       it "redirects to the created palabra" do
-        post :create, {:palabra => valid_attributes}, valid_session
+        palabra = FactoryGirl.build(:palabra)
+        post :create, {:palabra => palabra.attributes}, valid_session
         response.should redirect_to(Palabra.last)
       end
     end
@@ -105,7 +105,7 @@ describe PalabrasController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested palabra" do
-        palabra = Palabra.create! valid_attributes
+        palabra = FactoryGirl.create(:palabra)
         # Assuming there are no other palabras in the database, this
         # specifies that the Palabra created on the previous line
         # receives the :update_attributes message with whatever params are
@@ -115,21 +115,23 @@ describe PalabrasController do
       end
 
       it "assigns the requested palabra as @palabra" do
-        palabra = Palabra.create! valid_attributes
-        put :update, {:id => palabra.to_param, :palabra => valid_attributes}, valid_session
+        palabra = FactoryGirl.create(:palabra)
+        palabra1 = FactoryGirl.build(:palabra)
+        put :update, {:id => palabra.to_param, :palabra => palabra1}, valid_session
         assigns(:palabra).should eq(palabra)
       end
 
       it "redirects to the palabra" do
-        palabra = Palabra.create! valid_attributes
-        put :update, {:id => palabra.to_param, :palabra => valid_attributes}, valid_session
+        palabra = FactoryGirl.create(:palabra)
+        palabra1 = FactoryGirl.build(:palabra)
+        put :update, {:id => palabra.to_param, :palabra => palabra1}, valid_session
         response.should redirect_to(palabra)
       end
     end
 
     describe "with invalid params" do
       it "assigns the palabra as @palabra" do
-        palabra = Palabra.create! valid_attributes
+        palabra = FactoryGirl.create(:palabra)
         # Trigger the behavior that occurs when invalid params are submitted
         Palabra.any_instance.stub(:save).and_return(false)
         put :update, {:id => palabra.to_param, :palabra => {}}, valid_session
@@ -137,7 +139,7 @@ describe PalabrasController do
       end
 
       it "re-renders the 'edit' template" do
-        palabra = Palabra.create! valid_attributes
+        palabra = FactoryGirl.create(:palabra)
         # Trigger the behavior that occurs when invalid params are submitted
         Palabra.any_instance.stub(:save).and_return(false)
         put :update, {:id => palabra.to_param, :palabra => {}}, valid_session
@@ -148,14 +150,14 @@ describe PalabrasController do
 
   describe "DELETE destroy" do
     it "destroys the requested palabra" do
-      palabra = Palabra.create! valid_attributes
+      palabra = FactoryGirl.create(:palabra)
       expect {
         delete :destroy, {:id => palabra.to_param}, valid_session
       }.to change(Palabra, :count).by(-1)
     end
 
     it "redirects to the palabras list" do
-      palabra = Palabra.create! valid_attributes
+      palabra = FactoryGirl.create(:palabra)
       delete :destroy, {:id => palabra.to_param}, valid_session
       response.should redirect_to(palabras_url)
     end

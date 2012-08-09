@@ -12,5 +12,6 @@ FactoryGirl.define do
   factory :palabra do
     palabra "ka'avi"
     lugar "Mixteca Alta"
+    traducciones { [] } 
   end
 end

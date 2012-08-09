@@ -16,6 +16,7 @@
               = link_to 'Mostrar', palabra, class: 'btn'
               = link_to 'Editar', edit_palabra_path(palabra), class: 'btn'
               = link_to 'Eliminar', palabra, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn'
+              = link_to 'Variante', new_palabra_variante_path(palabra), class: 'btn'
 - else
   %div
     %h3 No se encontraron Palabras

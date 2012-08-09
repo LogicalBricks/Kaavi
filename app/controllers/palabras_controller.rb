@@ -41,10 +41,10 @@ class PalabrasController < ApplicationController
   # POST /palabras.json
   def create
     @palabra = Palabra.new(params[:palabra])
-
+    @palabra.significados = params[:significados]   
     respond_to do |format|
       if @palabra.save
-        format.html { redirect_to @palabra, notice: 'Palabra was successfully created.' }
+        format.html { redirect_to @palabra, notice: 'La palabra fue guardada correctamente.' }
         format.json { render json: @palabra, status: :created, location: @palabra }
       else
         format.html { render action: "new" }
@@ -57,10 +57,10 @@ class PalabrasController < ApplicationController
   # PUT /palabras/1.json
   def update
     @palabra = Palabra.find(params[:id])
-
+    @palabra.significados = params[:significados]   
     respond_to do |format|
       if @palabra.update_attributes(params[:palabra])
-        format.html { redirect_to @palabra, notice: 'Palabra was successfully updated.' }
+        format.html { redirect_to @palabra, notice: 'La Palabra fue actualizada correctamente.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -80,4 +80,5 @@ class PalabrasController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end
