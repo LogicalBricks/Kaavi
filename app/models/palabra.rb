@@ -15,11 +15,33 @@ class Palabra < ActiveRecord::Base
   end
 
   def significados=(significados_input)
+    puts "*"*20
+    puts significados_input
+    puts "*"*20
+
+    significados_input = "" if !significados_input
     significados_array = significados_input.split(',') 
-    traducciones = []
+    self.traducciones = []
     significados_array.each do |id|
-      significado = Significado.find(id)
-      self.traducciones.build(significado: significado) if significado
+     # if id.to_i > 0 
+        significado = Significado.find(id)
+        self.traducciones.build(significado: significado) if significado
+     # end
     end
+  end
+
+  def significados_id_comma
+    self.traducciones.collect(&:significado_id).join(',')
+  end
+
+  def significados_json
+    significados = []
+    self.traducciones.each do |t|
+      significado = {}
+      significado[:id]= t.significado.id
+      significado[:text]= t.significado.palabra
+      significados << significado
+    end 
+    significados.empty? ? 'null' : significados.to_json
   end
 end

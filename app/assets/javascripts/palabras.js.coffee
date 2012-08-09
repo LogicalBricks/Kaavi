@@ -3,14 +3,20 @@ $ ->
   $('#significados').select2
     multiple: true
     placeholder:"Elija sus significados"
-    allowClear: true
-    miminumInputLength: 1
+    miminumInputLength: 3
+    initSelection: (element, callback) ->
+      data = []
+      newdata = $('#significados').data 'value'
+      callback newdata
     ajax:
       url: "/significados.json"
       dataType: 'json'
-      data: (term, page) ->
-        { }
+      data: (term,page) ->
+        return {}
       results: (data, page) ->
-        i['text'] = i['palabra'] for i in data
-        console.log data
-        { results: data }
+        newdata = []
+        for d in data
+          if d['palabra']
+            newdata.push id: d['id'], text: d['palabra']
+        { results: newdata }
+  

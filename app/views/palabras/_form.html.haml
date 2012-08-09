@@ -9,8 +9,7 @@
  
   %br 
   %p
-    - significados = @palabra.traducciones.collect(&:significado_id).join(",")
-    %input#significados{type: 'hidden', name:'significados', style: 'width:300px', value:"#{significados}" }
+    %input#significados{type: 'hidden', name:'significados', style: 'width:300px', value: "#{@palabra.significados_id_comma }", data: { value: @palabra.significados_json } }
 
   .actions
     = f.submit 'Guardar', class:'btn btn-primary'
