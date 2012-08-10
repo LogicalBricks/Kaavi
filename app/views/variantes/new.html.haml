@@ -1,2 +1,16 @@
-%h1 Variantes#new
-%p Find me in app/views/variantes/new.html.haml
+%h1 Nueva Variante 
+
+= form_for @variante, as: :variante, url: palabra_variantes_path(@palabra) do |f|
+  = render 'error_messages', target: @variante
+
+  = f.label :palabra 
+  = f.text_field :palabra
+
+  = f.label :lugar
+  = f.text_field :lugar
+ 
+
+  .actions
+    = f.submit 'Guardar', class:'btn btn-primary'
+
+= link_to 'Listado', palabras_path, class: 'btn'

@@ -15,10 +15,6 @@ class Palabra < ActiveRecord::Base
   end
 
   def significados=(significados_input)
-    puts "*"*20
-    puts significados_input
-    puts "*"*20
-
     significados_input = "" if !significados_input
     significados_array = significados_input.split(',') 
     self.traducciones = []
@@ -43,5 +39,9 @@ class Palabra < ActiveRecord::Base
       significados << significado
     end 
     significados.empty? ? 'null' : significados.to_json
+  end
+
+  def relacionar_variante(palabra)
+    self.traducciones = palabra.traducciones if palabra
   end
 end

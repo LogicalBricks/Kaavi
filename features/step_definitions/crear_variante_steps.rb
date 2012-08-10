@@ -19,9 +19,10 @@ Cuando /^se introduzca la nueva variante$/ do
 end
 
 Entonces /^la variante debe tener los mismos significados que la palabra elegida$/ do
-  pending # express the regexp above with the code you wish you had
+  palabra = Palabra.find_by_palabra(@nueva) 
+  palabra.traducciones.collect(&:id).should =~ @palabra.traducciones.collect(&:id)
 end
 
 Entonces /^debe guardarse satisfactoriamente la variante$/ do
-  pending # express the regexp above with the code you wish you had
+  page.should have_content("La variante fue guardada correctamente")
 end

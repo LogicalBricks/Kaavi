@@ -86,6 +86,7 @@ Tabulous.setup do |config|
       #--------------------------------------------------------------------#
       [    :significados    ,    :all_actions    ,    :significados_tab    ],
       [    :palabras        ,    :all_actions    ,    :palabras_tab        ],
+      [    :variantes,    :all_actions    ,    :palabras_tab        ],
       #--------------------------------------------------------------------#
       #    CONTROLLER       |    ACTION          |    TAB                  #
       #--------------------------------------------------------------------#
