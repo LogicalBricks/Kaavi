@@ -20,7 +20,7 @@ end
 
 Entonces /^la variante debe tener los mismos significados que la palabra elegida$/ do
   palabra = Palabra.find_by_palabra(@nueva) 
-  palabra.traducciones.collect(&:id).should =~ @palabra.traducciones.collect(&:id)
+  palabra.traducciones.should =~ @palabra.traducciones
 end
 
 Entonces /^debe guardarse satisfactoriamente la variante$/ do
