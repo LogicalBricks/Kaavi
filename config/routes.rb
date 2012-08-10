@@ -1,4 +1,10 @@
 Kaavi::Application.routes.draw do
+  get "variantes/index"
+
+  get "variantes/new"
+
+  get "variantes/create"
+
   resources :significados
 
   resources :palabras do
