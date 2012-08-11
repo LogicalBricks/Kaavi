@@ -2,7 +2,7 @@ class PalabrasController < ApplicationController
   # GET /palabras
   # GET /palabras.json
   def index
-    @palabras = Palabra.all
+    @palabras = PalabraDecorator.decorate(Palabra.all)
 
     respond_to do |format|
       format.html # index.html.erb
