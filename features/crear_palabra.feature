@@ -7,7 +7,8 @@ Característica: Agregar nueva palabra al diccionario
   palabra.
 
   Escenario: Introducir una nueva palabra
-    Dado que se encuentra en la página para introducir la nueva palabra
+    Dado que se cuenta con al menos dos significados
+    Y que se encuentra en la página para introducir la nueva palabra
     Cuando se introduce una palabra válida con sus significados
     Entonces debe guardar correctamente la palabra
 

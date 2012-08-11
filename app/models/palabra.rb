@@ -19,10 +19,8 @@ class Palabra < ActiveRecord::Base
     significados_array = significados_input.split(',') 
     self.traducciones = []
     significados_array.each do |id|
-     # if id.to_i > 0 
-        significado = Significado.find(id)
-        self.traducciones.build(significado: significado) if significado
-     # end
+      significado = Significado.find(id)
+      self.traducciones.build(significado: significado) if significado
     end
   end
 

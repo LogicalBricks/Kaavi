@@ -19,4 +19,15 @@ $ ->
           if d['palabra']
             newdata.push id: d['id'], text: d['palabra']
         { results: newdata }
-  
+  $('#significados').bind 'change', ->
+    id = $(this).val()
+    console.log "Elementos: #{id}"
+    ids = id.split(',')
+    palabras = ''
+    ul = "<ul></ul>"
+    $('#variantes').empty()
+    $('#variantes').append ul
+    $(ids).each ->
+      $.getJSON "/significados/#{this}.json", (data) ->
+        li = "<li>#{data['palabra']}</li>"
+        $('#variantes ul').append li

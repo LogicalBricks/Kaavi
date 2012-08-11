@@ -30,4 +30,12 @@ describe 'Palabra' do
     traducciones = [FactoryGirl.build(:traduccion, significado: significado), FactoryGirl.build(:traduccion, significado: significado)]
     palabra = FactoryGirl.build(:palabra, traducciones: traducciones).should_not be_valid
   end
+
+  it 'debe relacionar las traducciones de la variantes' do
+    palabra = FactoryGirl.create(:palabra_con_traducciones)
+    palabra_nueva = FactoryGirl.create(:palabra, palabra: 'Palabra')
+    palabra_nueva.relacionar_variante(palabra)
+    palabra_nueva.save
+    palabra_nueva.traducciones.should =~ palabra.traducciones
+  end
 end
