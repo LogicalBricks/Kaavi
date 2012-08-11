@@ -61,12 +61,8 @@ gem 'carrierwave'
 gem 'rmagick'
 
 gem 'awesome_nested_fields'
-<<<<<<< HEAD
-=======
 
 gem 'will_paginate'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
->>>>>>> Agregada la funcionalidad del dataTable
-
 gem 'draper'

@@ -2,12 +2,8 @@ class PalabrasController < ApplicationController
   # GET /palabras
   # GET /palabras.json
   def index
-<<<<<<< HEAD
-    @palabras = PalabraDecorator.decorate(Palabra.all)
-
-=======
+    #@palabras = PalabraDecorator.decorate(Palabra.all)
     #@palabras = Palabra.all
->>>>>>> Agregada la funcionalidad del dataTable
     respond_to do |format|
       format.html # index.html.erb
       #format.json { render json: @palabras }
