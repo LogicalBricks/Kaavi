@@ -1,7 +1,7 @@
 
 %p
-  %b= @palabra.palabra
-  = @palabra.lugar 
+  %b= @palabra.palabra.to_s
+  %i= @palabra.lugar 
 %ul
   - @palabra.traducciones.each do |p|
     %li= p.significado.palabra

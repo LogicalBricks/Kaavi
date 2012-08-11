@@ -13,8 +13,7 @@ class PalabrasController < ApplicationController
   # GET /palabras/1
   # GET /palabras/1.json
   def show
-    @palabra = Palabra.find(params[:id])
-
+    @palabra = PalabraDecorator.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @palabra }

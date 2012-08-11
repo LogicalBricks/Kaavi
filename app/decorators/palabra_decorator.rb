@@ -1,6 +1,13 @@
 class PalabraDecorator < Draper::Base
+  allows :palabra, :lugar, :traducciones
+  include Draper::LazyHelpers
   decorates :palabra
-
+  
+  # Se hace esta sobreescritura por problemas con draper cuando
+  # un atributo se llama igual que el modelo
+  def palabra
+   model.palabra  
+  end
   # Accessing Helpers
   #   You can access any helper via a proxy
   #
