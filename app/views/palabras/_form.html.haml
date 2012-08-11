@@ -9,7 +9,7 @@
  
   %br 
   %p
-    %input#significados{type: 'hidden', name:'significados', style: 'width:300px', value: "#{@palabra.significados_id_comma }", data: { value: @palabra.significados_json } }
+    %input#significados{type: 'hidden', name:'significados', style: 'width:300px', value: "#{@palabra_view.significados_id_comma }", data: { value: @palabra_view.significados_json } }
 
   .actions
     = f.submit 'Guardar', class:'btn btn-primary'

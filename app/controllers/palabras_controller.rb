@@ -25,6 +25,7 @@ class PalabrasController < ApplicationController
   def new
     @palabra = Palabra.new
 
+    @palabra_view = PalabraDecorator.new(@palabra)
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @palabra }
@@ -34,6 +35,7 @@ class PalabrasController < ApplicationController
   # GET /palabras/1/edit
   def edit
     @palabra = Palabra.find(params[:id])
+    @palabra_view = PalabraDecorator.new(@palabra)
   end
 
   # POST /palabras

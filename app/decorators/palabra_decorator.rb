@@ -36,4 +36,24 @@ class PalabraDecorator < Draper::Base
   #     h.content_tag :span, attributes["created_at"].strftime("%a %m/%d/%y"),
   #                   :class => 'timestamp'
   #   end
+  #
+  def significados_id_comma
+    self.traducciones.collect(&:significado_id).join(',')
+  end
+
+  def significados_json
+    significados = []
+    self.traducciones.each do |t|
+      significado = {}
+      significado[:id]= t.significado.id
+      significado[:text]= t.significado.palabra
+      significados << significado
+    end 
+    significados.empty? ? 'null' : significados.to_json
+  end
+
+  def relacionar_variante(palabra)
+    self.traducciones = palabra.traducciones if palabra
+  end
+
 end
