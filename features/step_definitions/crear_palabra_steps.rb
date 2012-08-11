@@ -33,6 +33,7 @@ Cuando /^se escribe un significado común$/ do
 end
 
 Entonces /^debe mostrar las variantes asociadas al significado$/ do
+  pending "Falta la implementación de la generación de las variantes asociadas"
   page.should have_content("Variante(s):#{@palabra.palabra}")
 end
 
