@@ -34,4 +34,7 @@ $ ->
 
 # dataTables script
 jQuery ->
-  $('#palabras').dataTable()
+  $('#palabras').dataTable
+    bProcessing: true
+    bServerSide: true
+    sAjaxSource: $('#palabras').data('source')
