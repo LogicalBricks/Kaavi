@@ -6,10 +6,6 @@ describe "significados/edit" do
   end
 
   it "renders the edit significado form" do
-    render
-
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form", :action => significados_path(@significado), :method => "post" do
-    end
+    pending "Falta definir como se probara"
   end
 end
