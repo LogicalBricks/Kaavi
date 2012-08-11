@@ -31,3 +31,7 @@ $ ->
       $.getJSON "/significados/#{this}.json", (data) ->
         li = "<li>#{data['palabra']}</li>"
         $('#variantes ul').append li
+
+# dataTables script
+jQuery ->
+  $('#palabras').dataTable()
