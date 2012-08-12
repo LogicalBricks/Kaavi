@@ -32,7 +32,7 @@ class PalabrasDatatable
     palabras = Palabra.order("#{sort_column} #{sort_direction}")
     palabras = palabras.page(page).per_page(per_page)
     if params[:sSearch].present?
-      palabras = palabras.where("palabra like :search", search: "%w#{:sSearch}")
+      palabras = palabras.where("palabra like :search", search: "%#{params[:sSearch]}%")
     end
     palabras
   end
