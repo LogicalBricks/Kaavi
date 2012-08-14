@@ -8,7 +8,8 @@ describe PalabraDecorator do
   end
 
   it 'should return empty json file' do
-    palabra_vacia = FactoryGirl.create(:palabra, palabra: "Palabra")
+    palabra = FactoryGirl.create(:palabra, palabra: "Palabra")
+    palabra_vacia = PalabraDecorator.new(palabra)
     palabra_vacia.significados_json.should == 'null'
   end
 
