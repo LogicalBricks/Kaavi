@@ -1,5 +1,7 @@
+# -*- encoding : utf-8 -*-
 class PalabrasDatatable
-  delegate :params, :h, :link_to, :number_to_currency, to: :@view
+  include Rails.application.routes.url_helpers
+  delegate :content_tag, :params, :h, :link_to, :number_to_currency, :url_helpers, to: :@view
 
   def initialize(view)
     @view = view
@@ -17,9 +19,15 @@ class PalabrasDatatable
   private
   def data
     palabras.map do |palabra|
+      links = content_tag('div', class: 'btn-group') do
+        link_to('Editar',edit_palabra_path(palabra), class: 'btn')+
+          link_to('Eliminar', palabra, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn')+
+          link_to('Variante',new_palabra_variante_path(palabra), class: 'btn') 
+      end
       [
         link_to(palabra.palabra, palabra),
-        h(palabra.lugar)
+        h(palabra.lugar),
+        links
       ]
     end
   end

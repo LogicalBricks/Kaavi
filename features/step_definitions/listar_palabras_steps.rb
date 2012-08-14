@@ -15,7 +15,7 @@ end
 Entonces /^se deben mostrar todas las palabras y los botones correspondientes$/ do
   @palabras.each do |palabra|
    page.should have_content(palabra.palabra)
-    page.has_link?('Mostrar', href: "/palabras/#{palabra.id}").should be_true
+    #page.has_link?('Mostrar', href: "/palabras/#{palabra.id}").should be_true
     page.has_link?('Editar', href: "/palabras/#{palabra.id}/edit").should be_true
     page.has_link?('Eliminar', href: "/palabras/#{palabra.id}").should be_true
     page.has_link?('Variante', href: "/palabras/#{palabra.id}/variantes/new").should be_true

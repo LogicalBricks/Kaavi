@@ -14,5 +14,14 @@
   .actions
     = f.submit 'Guardar', class:'btn btn-primary'
 
+.significado_alert
+= link_to 'Agregar significado','#', id: 'agregar_significado_btn'
+#agregar_significado
+  - @significado = Significado.new
+  %h2 Agregar significado
+  = form_for @significado, remote: true, html: { type: :html, id: 'agregar_significado_form'} do |s|
+    = s.label :palabra
+    = s.text_field :palabra
+    = s.submit "Agregar", class:'btn btn-success'
 
 #variantes

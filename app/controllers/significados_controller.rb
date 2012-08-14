@@ -44,11 +44,13 @@ class SignificadosController < ApplicationController
 
     respond_to do |format|
       if @significado.save
-        format.html { redirect_to @significado, notice: 'Significado was successfully created.' }
+        format.html { redirect_to @significado, notice: 'El significado fue guardado correctamente' }
         format.json { render json: @significado, status: :created, location: @significado }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @significado.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

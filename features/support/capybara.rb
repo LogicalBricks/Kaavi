@@ -1,3 +1,5 @@
+require 'draper/test/rspec_integration' if defined?(RSpec) && RSpec.respond_to?(:configure)
+
 Capybara.javascript_driver = :webkit
 
 After do |escenario| 

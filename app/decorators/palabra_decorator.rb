@@ -38,22 +38,18 @@ class PalabraDecorator < Draper::Base
   #   end
   #
   def significados_id_comma
-    self.traducciones.collect(&:significado_id).join(',')
+    model.traducciones.collect(&:significado_id).join(',')
   end
 
   def significados_json
     significados = []
-    self.traducciones.each do |t|
+    model.traducciones.each do |t|
       significado = {}
       significado[:id]= t.significado.id
       significado[:text]= t.significado.palabra
       significados << significado
     end 
     significados.empty? ? 'null' : significados.to_json
-  end
-
-  def relacionar_variante(palabra)
-    self.traducciones = palabra.traducciones if palabra
   end
 
 end
