@@ -3,13 +3,12 @@ require 'spec_helper'
 describe PalabraDecorator do
 
   before(:each) do
-    @palabra_con_traducciones = FactoryGirl.create(:palabra_con_traduccion)
+    @palabra_con_traducciones = FactoryGirl.create(:palabra_con_traducciones)
     @palabra = PalabraDecorator.find(@palabra_con_traducciones.id)
   end
 
   it 'should return empty json file' do
-    pending
-    palabra_vacia = FactoryGirl.create(:palabra)
+    palabra_vacia = FactoryGirl.create(:palabra, palabra: "Palabra")
     palabra_vacia.significados_json.should == 'null'
   end
 
@@ -17,20 +16,8 @@ describe PalabraDecorator do
     @palabra.significados_json.should_not == 'null'
   end
 
-  it 'should return test1, test2, test3' do
-    pending
-    @palabra.significados_id_comma.should == 'test1, test2, test3'
-  end
-
-  it 'should relacionar_variante' do
-    pending
-    variante = "algo"
-    @palabra.relacionar_variante(variante).should == nil
-  end
-
-  it 'should not relacionar_variante' do
-    pending
-    @palabra.relacionar_variante(variante).should_not == nil
+  it 'should 1,2' do
+    @palabra.significados_id_comma.should == '1,2'
   end
 
   it 'should return a Palabra model' do
