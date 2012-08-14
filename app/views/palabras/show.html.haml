@@ -5,6 +5,8 @@
 %ul
   - @palabra.traducciones.each do |p|
     %li= p.significado.palabra
+%p
+  = @palabra.audio
 
 .btn-group
   = link_to 'Editar', edit_palabra_path(@palabra), class: 'btn'

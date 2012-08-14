@@ -37,4 +37,18 @@ Entonces /^debe mostrar las variantes asociadas al significado$/ do
   page.should have_content("Variante(s):#{@palabra.palabra}")
 end
 
+Cuando /^se introduce una palabra válida con sus significados incluyendo audio$/ do
+  @archivo_path = File.join(Rails.root,'spec','uploads','prueba.txt')
+  @texto1= 'davi'
+  fill_in 'Palabra', with: @texto1
+  fill_in 'Lugar', with: 'mixteca baja'
+  attach_file 'palabra_audio', @archivo_path
+  click_button 'Guardar'
+end
+
+Entonces /^debe guardar correctamente la palabra con el audio$/ do
+  page.should have_content("La palabra fue guardada correctamente")
+  palabra = Palabra.find_by_palabra(@texto1) 
+  FileUtils.compare_file(palabra.audio.current_path, @archivo_path).should be_true
+end
 

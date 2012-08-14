@@ -1,6 +1,7 @@
 class Palabra < ActiveRecord::Base
 
-  attr_accessible :lugar, :palabra
+  attr_accessible :lugar, :palabra, :audio
+  mount_uploader :audio, AudioUploader
 
   has_and_belongs_to_many :traducciones, autosave: true
 

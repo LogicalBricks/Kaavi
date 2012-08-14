@@ -44,4 +44,12 @@ describe 'Palabra' do
     nueva_palabra = FactoryGirl.build(:palabra)
     nueva_palabra.should have(1).error_on(:palabra)
   end
+
+  it 'debe permitir guardar una palabra con archivo adjunto' do
+    archivo_path = File.join(Rails.root,'spec','uploads','prueba.txt')
+    palabra = FactoryGirl.build(:palabra)
+    palabra.audio = File.open(archivo_path)
+    palabra.save
+    FileUtils.compare_file(palabra.audio.current_path, archivo_path).should be_true
+  end
 end

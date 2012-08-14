@@ -8,11 +8,15 @@ class PalabraDecorator < Draper::Base
   def palabra
    model.palabra  
   end
+
+  def audio 
+    model.audio.url
+  end
   # Accessing Helpers
   #   You can access any helper via a proxy
   #
   #   Normal Usage: helpers.number_to_currency(2)
-  #   Abbreviated : h.number_to_currency(2)
+  #   Abbreviated : h._to_currency(2)
   #
   #   Or, optionally enable "lazy helpers" by including this module:
   #     include Draper::LazyHelpers
