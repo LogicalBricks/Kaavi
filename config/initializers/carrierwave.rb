@@ -1,4 +1,3 @@
-# put logic in this file or initalizer/carrierwave.rb
 if defined?(CarrierWave)
   CarrierWave::Uploader::Base.descendants.each do |klass|
     next if klass.anonymous?
