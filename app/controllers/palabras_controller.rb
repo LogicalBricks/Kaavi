@@ -2,8 +2,12 @@ class PalabrasController < ApplicationController
   # GET /palabras
   # GET /palabras.json
   def index
-    #@palabras = PalabraDecorator.decorate(Palabra.all)
-    #@palabras = Palabra.all
+    #@busqueda= palabras.page(page).per_page(per_page)
+    params[:page_limit] |= 10
+    if params[:q].present?
+      @busqueda= Palabras.where("palabra like :search limit :number", search: "%#{params[:q]}%", number: params[:page_limit] )
+    end
+    @palabras = PalabraDecorator.decorate(:all)
     respond_to do |format|
       format.html # index.html.erb
       #format.json { render json: @palabras }

@@ -12,7 +12,11 @@ $ ->
       url: "/significados.json"
       dataType: 'json'
       data: (term,page) ->
-        return {}
+        return {
+          q: term,
+          page: page,
+          page_limit: 10
+        }
       results: (data, page) ->
         newdata = []
         for d in data

@@ -3,10 +3,14 @@ class SignificadosController < ApplicationController
   # GET /significados.json
   def index
     @significados = Significado.all
-
+    if params[:q].present?
+      @busqueda= Significado.where("palabra like :search", search: "%#{params[:q]}%", limit: params[:page_limit])
+    else
+      @busqueda = Significado.find(:all, limit: 10)
+    end
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @significados }
+      format.json { render json: @busqueda}
     end
   end
 
