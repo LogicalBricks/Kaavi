@@ -3,4 +3,5 @@ class Significado < ActiveRecord::Base
   has_many :traducciones
 
   validates :palabra, presence: true 
+  validates :palabra, uniqueness: true
 end

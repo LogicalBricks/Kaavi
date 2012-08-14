@@ -38,4 +38,10 @@ describe 'Palabra' do
     palabra_nueva.save
     palabra_nueva.traducciones.should =~ palabra.traducciones
   end
+
+  it 'no debe de admitir palabras repetidas' do
+    palabra = FactoryGirl.create(:palabra)
+    nueva_palabra = FactoryGirl.build(:palabra)
+    nueva_palabra.should have(1).error_on(:palabra)
+  end
 end

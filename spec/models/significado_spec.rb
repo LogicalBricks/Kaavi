@@ -9,4 +9,10 @@ describe 'Significado' do
   it 'no debe crear un significado vacío' do
     palabra = FactoryGirl.build(:significado, palabra: '').should_not be_valid
   end 
+
+  it 'no debe de aceptar palabras duplicadas' do
+    palabra = FactoryGirl.create(:significado, palabra: 'Significado')
+    otra_palabra = FactoryGirl.build(:significado, palabra: 'Significado')
+    otra_palabra.should have(1).error_on(:palabra)
+  end
 end
