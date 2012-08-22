@@ -51,7 +51,7 @@ end
 
 gem 'tabulous'
 
-gem 'select2-rails', '3.0.0'
+gem 'select2-rails'
 
 gem 'hpricot'
 gem 'ruby_parser'
