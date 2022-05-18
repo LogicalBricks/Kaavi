@@ -1,29 +1,33 @@
 GIT
-  remote: git://github.com/LogicalBricks/lbs-config.git
+  remote: https://github.com/LogicalBricks/lbs-config.git
   revision: 89d38e3af780c4f4c11cafc61b56ee0f261f5ec0
   specs:
     lbs-config (0.0.3)
 
 GIT
-  remote: git://github.com/LogicalBricks/rieles.git
-  revision: 4ecddb4949e0049ac6d976d4c6c7f627f0da514e
+  remote: https://github.com/LogicalBricks/rieles.git
+  revision: bd744488415228156c67bcfa6fa4855f7a23c3b3
   specs:
-    rieles (0.0.4)
+    rieles (0.0.8)
+      rails (~> 3.0)
 
 GIT
-  remote: git://github.com/anjlab/bootstrap-rails.git
-  revision: 63d8eed8bff9c81e4c572627f0ff4d59fd98e980
+  remote: https://github.com/anjlab/bootstrap-rails.git
+  revision: 54b165183fdccc4feb451416d1a46ecae496d6be
   specs:
-    anjlab-bootstrap-rails (2.0.4.3)
+    anjlab-bootstrap-rails (3.0.3.0)
       railties (>= 3.0)
-      sass
+      sass (>= 3.2)
 
 GIT
-  remote: git://github.com/rweng/jquery-datatables-rails.git
-  revision: 8e38453e001049b50b5ac5eae65992cfd2782328
+  remote: https://github.com/rweng/jquery-datatables-rails.git
+  revision: d486b31b192a2924b1913e080ad23460e6b96d31
   specs:
-    jquery-datatables-rails (1.10.0)
+    jquery-datatables-rails (3.4.0)
+      actionpack (>= 3.1)
       jquery-rails
+      railties (>= 3.1)
+      sass-rails
 
 GEM
   remote: https://rubygems.org/
@@ -147,11 +151,15 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.19)
+    mini_portile2 (2.8.0)
     multi_json (1.3.6)
-    nokogiri (1.5.5)
+    nokogiri (1.13.6)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
     notifier (0.2.1)
     pg (0.14.0)
     polyglot (0.3.3)
+    racc (1.6.0)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -175,6 +183,9 @@ GEM
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
     rake (0.9.2.2)
+    rb-fsevent (0.11.1)
+    rb-inotify (0.10.1)
+      ffi (~> 1.0)
     rdoc (3.12)
       json (~> 1.4)
     rmagick (2.13.1)
@@ -194,7 +205,11 @@ GEM
     ruby_parser (2.3.1)
       sexp_processor (~> 3.0)
     rubyzip (0.9.9)
-    sass (3.1.20)
+    sass (3.7.4)
+      sass-listen (~> 4.0.0)
+    sass-listen (4.0.0)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
